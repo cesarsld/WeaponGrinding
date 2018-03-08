@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/WeaponUpgrading.cs">
+    <Files>
+      <File FileName="Assets/Scripts/WeaponParts.cs" Line="18" Column="5" />
+      <File FileName="Assets/Scripts/Weapon.cs" Line="43" Column="26" />
+      <File FileName="Assets/Scripts/WeaponFactory.cs" Line="25" Column="28" />
+      <File FileName="Assets/Scripts/WeaponUpgrading.cs" Line="29" Column="5" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

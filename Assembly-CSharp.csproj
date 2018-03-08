@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Weapon.cs" />
      <Compile Include="Assets\Scripts\WeaponFactory.cs" />
      <Compile Include="Assets\Scripts\WeaponParts.cs" />
+     <Compile Include="Assets\Scripts\WeaponUpgrading.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

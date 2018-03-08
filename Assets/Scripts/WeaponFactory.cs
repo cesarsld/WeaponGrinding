@@ -22,7 +22,7 @@ public class WeaponFactory : MonoBehaviour {
         AttemptNo = 0;
 	}
 
-    public void OnRollClick()
+    public void OnClickRoll()
     {
         if (CraftIndex >= PART_NUMBER) return;
         NewWeapon.WeaponPartList[CraftIndex].RollRarity(0);
@@ -30,11 +30,11 @@ public class WeaponFactory : MonoBehaviour {
         AttemptNo++;
         if (AttemptNo == NoAttemptsAtIndex[CraftIndex])
         {
-            OnProceedClick();
+            OnClickProceed();
         }
     }
 
-    public void OnProceedClick()
+    public void OnClickProceed()
     {
         AttemptNo = 0;
         CraftIndex++;
@@ -46,7 +46,7 @@ public class WeaponFactory : MonoBehaviour {
         PartSelector.transform.position = PartText[CraftIndex].gameObject.transform.position;
     }
 
-    public void OnResetClick ()
+    public void OnClickReset ()
     {
         NewWeapon = new Weapon(PART_NUMBER);
         CraftIndex = 0;
@@ -56,5 +56,9 @@ public class WeaponFactory : MonoBehaviour {
         {
             text.text = "0";
         }
+    }
+    public Weapon OnClickWeaponTransfer()
+    {
+        return NewWeapon;
     }
 }
