@@ -47,7 +47,7 @@ public class WeaponUpgrading : MonoBehaviour {
             WeaponToUpgrade.Upgrade();
             if (WeaponToUpgrade.GetLevel() <= 15)
             {
-                SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString();
+                SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
             }
         }
         else
@@ -78,7 +78,7 @@ public class WeaponUpgrading : MonoBehaviour {
     {
         WeaponToUpgrade = GameObject.Find("WeaponFactory").GetComponent<WeaponFactory>().OnClickWeaponTransfer();
         UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
-        SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString();
+        SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
         WeaponRarityText.text = "Weapon rarity :\n" + WeaponToUpgrade.WeaponRarity.ToString();
     }
 }
