@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponUpgrading : MonoBehaviour {
 
@@ -28,6 +29,11 @@ public class WeaponUpgrading : MonoBehaviour {
         };
 
     private Weapon WeaponToUpgrade;
+
+    public Text UpgradeLevelText;
+    public Text SuccessRateText;
+    public Text WeaponRarityText;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -39,12 +45,17 @@ public class WeaponUpgrading : MonoBehaviour {
         if (rollChance < SuccessRateArray[WeaponToUpgrade.GetLevel()])
         {
             WeaponToUpgrade.Upgrade();
+            if (WeaponToUpgrade.GetLevel() <= 15)
+            {
+                SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString();
+            }
         }
         else
         {
             if (WeaponToUpgrade.GetLevel() > 7)
             {
                 WeaponToUpgrade.Destroy();
+                UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
                 return;
             }
             switch (WeaponToUpgrade.GetLevel())
@@ -60,10 +71,14 @@ public class WeaponUpgrading : MonoBehaviour {
                     break;
             }
         }
+        UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
     }
 
     public void OnClickTransfer()
     {
         WeaponToUpgrade = GameObject.Find("WeaponFactory").GetComponent<WeaponFactory>().OnClickWeaponTransfer();
+        UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
+        SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString();
+        WeaponRarityText.text = "Weapon rarity :\n" + WeaponToUpgrade.WeaponRarity.ToString();
     }
 }
