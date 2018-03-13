@@ -84,8 +84,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\InventoryUi.cs" />
+    <Compile Include="Assets\Scripts\GemBag.cs" />
+    <Compile Include="Assets\Scripts\Inventory.cs" />
+    <Compile Include="Assets\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Scripts\UiManager.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\WeaponFactory.cs" />
+    <Compile Include="Assets\Scripts\WeaponFrameArray.cs" />
+    <Compile Include="Assets\Scripts\WeaponPanelUi.cs" />
     <Compile Include="Assets\Scripts\WeaponParts.cs" />
     <Compile Include="Assets\Scripts\WeaponUpgrading.cs" />
   </ItemGroup>

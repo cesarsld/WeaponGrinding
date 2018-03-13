@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory {
+
     public int playerID;
     List<Weapon> WeaponList;
    
@@ -11,5 +12,14 @@ public class Inventory {
     {
         
     }
+
+    public void FetchWeapons()
+    {
+        foreach (Weapon weapon in WeaponList)
+        {
+
+        }
+    }
+
 
 }
