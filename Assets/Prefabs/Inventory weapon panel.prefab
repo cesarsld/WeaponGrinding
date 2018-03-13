@@ -123,7 +123,8 @@ MonoBehaviour:
     type: 2}
   WeaponDescription: {fileID: 1723685415604680, guid: 2838e3d96657cda4e9c92c0601fab898,
     type: 2}
-  rootParent: {fileID: 0}
+  CurrentDescription: {fileID: 0}
+  rootParent: {fileID: 1772415181832948, guid: f44b38c572403144ca36744180b45b41, type: 2}
 --- !u!114 &114415454982465350
 MonoBehaviour:
   m_ObjectHideFlags: 1
