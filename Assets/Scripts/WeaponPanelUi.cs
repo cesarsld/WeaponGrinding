@@ -18,9 +18,9 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public WeaponPanelUi(Weapon _weapon)
     {
         weapon = _weapon;
+        WeaponDescription = GameObject.Find("Additional information Panel");
     }
 	void Start () {
-        //WeaponDescription.SetActive(false);
         WeaponImage = transform.Find("Equipment Image").GetComponent<Image>();
         wp = SpriteArray.GetComponent<WeaponFrameArray>();
 	}
@@ -32,14 +32,13 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        //WeaponDescription.SetActive(true);
-        CurrentDescription = Instantiate(WeaponDescription, rootParent.transform, false);
+        CurrentDescription = Instantiate(WeaponDescription, transform.root, false);
+        CurrentDescription.transform.position = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
         Debug.Log(CurrentDescription.transform.parent);
         WeaponImage.sprite = wp.SpriteArray[Random.Range(0, wp.SpriteArray.Length)];
     }
     public void OnPointerExit(PointerEventData pointerEventData)
     {
-        //WeaponDescription.SetActive(false);
-        //Destroy(CurrentDescription);
+        Destroy(CurrentDescription);
     }
 }
