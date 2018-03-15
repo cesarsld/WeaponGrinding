@@ -30,12 +30,15 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 		
 	}
 
+    //modify feature to make the information panel a reusable object that changes position so we don't use instantiate
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
+        WeaponDescription.transform.position = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
         CurrentDescription = Instantiate(WeaponDescription, transform.root, false);
         CurrentDescription.transform.position = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
-        Debug.Log(CurrentDescription.transform.parent);
         WeaponImage.sprite = wp.SpriteArray[Random.Range(0, wp.SpriteArray.Length)];
+        CurrentDescription.transform.Find("Weapon Name").GetComponent<Text>().text = "Weapon Name +" + weapon.GetLevel().ToString();
+        CurrentDescription.transform.Find("Rarity Text").GetComponent<Text>().text = "Weapon rarity: " + weapon.WeaponRarity.ToString();
     }
     public void OnPointerExit(PointerEventData pointerEventData)
     {

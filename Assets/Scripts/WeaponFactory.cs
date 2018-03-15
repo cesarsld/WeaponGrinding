@@ -8,18 +8,22 @@ public class WeaponFactory : MonoBehaviour {
     public Text[] PartText;
     public Text WeaponRarityText;
     public GameObject PartSelector;
+    private Player player;
 
     private Weapon NewWeapon;
     private const int PART_NUMBER = 3;
     private int CraftIndex;
     private readonly int[] NoAttemptsAtIndex ={ 100, 5, 1 };
     private int AttemptNo;
+    private bool WeaponCrafted;
 
 	void Start () 
     {
+        player = GameObject.Find("PlayerPlaceholder").GetComponent<Player>();
         NewWeapon = new Weapon(PART_NUMBER);
         CraftIndex = 0;
         AttemptNo = 0;
+        WeaponCrafted = false;
 	}
 
     public void OnClickRoll()
@@ -36,18 +40,22 @@ public class WeaponFactory : MonoBehaviour {
 
     public void OnClickProceed()
     {
+        if (WeaponCrafted) return;
         AttemptNo = 0;
         CraftIndex++;
         if (CraftIndex >= PART_NUMBER)
         {
             WeaponRarityText.text = "Weapon rarity:\n" + NewWeapon.WeaponRarity.ToString();
+            player.StoreWeapon(NewWeapon);
+            WeaponCrafted = true;
             return;
         }
         PartSelector.transform.position = PartText[CraftIndex].gameObject.transform.position;
     }
 
-    public void OnClickReset ()
+    public void OnClickReset () // dev feature
     {
+        WeaponCrafted = false;
         NewWeapon = new Weapon(PART_NUMBER);
         CraftIndex = 0;
         PartSelector.transform.position = PartText[CraftIndex].gameObject.transform.position;

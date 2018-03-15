@@ -8,5 +8,11 @@ public class PlayerData  {
     public DateTime CreationDate;
     public DateTime LastLoginDate;
 
+    public PlayerData(int id)
+    {
+        Id = id;
+
+    }
+
 
 }

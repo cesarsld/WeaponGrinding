@@ -5,21 +5,30 @@ using UnityEngine;
 public class Inventory {
 
     public int playerID;
-    List<Weapon> WeaponList;
+    private List<Weapon> WeaponList;
    
+    public Inventory(int id)
+    {
+        playerID = id;
+    }
 
     public void LoadDataFromDB ()
     {
         
     }
 
-    public void FetchWeapons()
+    public List<Weapon> FetchWeapons()
     {
-        foreach (Weapon weapon in WeaponList)
-        {
-
-        }
+        return WeaponList;
     }
 
+    public void StoreWeapon (Weapon weapon)
+    {
+        WeaponList.Add(weapon);
+    }
+    public void RemoveWeapon (Weapon weapon)
+    {
+        WeaponList.Remove(weapon);
+    }
 
 }
