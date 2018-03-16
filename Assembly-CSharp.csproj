@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GemBag.cs" />
      <Compile Include="Assets\Scripts\Inventory UI\InventoryUi.cs" />
+     <Compile Include="Assets\Scripts\Inventory UI\InventoryUpgradeUi.cs" />
      <Compile Include="Assets\Scripts\Inventory UI\WeaponPanelUi.cs" />
      <Compile Include="Assets\Scripts\Inventory.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler {
 
     public GameObject SpriteArray;
     private WeaponFrameArray wp;
@@ -12,6 +12,7 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public GameObject CurrentDescription;
     private Weapon weapon;
     public GameObject rootParent;
+    private bool isOnUpgradePanel;
 
     private Image WeaponImage;
     // Use this for initialization
@@ -19,10 +20,12 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         weapon = _weapon;
         WeaponDescription = GameObject.Find("Additional information Panel");
+        isOnUpgradePanel = false;
     }
 	void Start () {
         WeaponImage = transform.Find("Equipment Image").GetComponent<Image>();
         wp = SpriteArray.GetComponent<WeaponFrameArray>();
+        isOnUpgradePanel = false;
 	}
 	
 	// Update is called once per frame
@@ -43,5 +46,16 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         Destroy(CurrentDescription);
+    }
+
+    public void IsOnUpgradePanel()
+    {
+        isOnUpgradePanel = true;
+    }
+
+    public Weapon OnPointerClick(PointerEventData pointerEventData)
+    {
+        isOnUpgradePanel = false;
+        return weapon;
     }
 }

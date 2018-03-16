@@ -19,7 +19,7 @@ public class WeaponFactory : MonoBehaviour {
 
 	void Start () 
     {
-        player = GameObject.Find("PlayerPlaceholder").GetComponent<Player>();
+        player = GameObject.Find("Player").GetComponent<Player>();
         NewWeapon = new Weapon(PART_NUMBER);
         CraftIndex = 0;
         AttemptNo = 0;

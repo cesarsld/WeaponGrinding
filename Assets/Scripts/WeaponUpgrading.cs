@@ -30,17 +30,22 @@ public class WeaponUpgrading : MonoBehaviour {
 
     private Weapon WeaponToUpgrade;
 
+    private Player player;
+
+    private bool weaponSelected;
     public Text UpgradeLevelText;
     public Text SuccessRateText;
     public Text WeaponRarityText;
 
 	// Use this for initialization
 	void Start () {
-		
+        player = GameObject.Find("Player").GetComponent<Player>();
+        weaponSelected = false;
 	}
 	
     public void OnClickUpgrade()
     {
+        if (!weaponSelected) return;
         int rollChance = Random.Range(0, 99);
         if (rollChance < SuccessRateArray[WeaponToUpgrade.GetLevel()])
         {
@@ -54,7 +59,8 @@ public class WeaponUpgrading : MonoBehaviour {
         {
             if (WeaponToUpgrade.GetLevel() > 7)
             {
-                WeaponToUpgrade.Destroy();
+                player.RemoveWeapon(WeaponToUpgrade);
+                weaponSelected = true;
                 UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
                 return;
             }
