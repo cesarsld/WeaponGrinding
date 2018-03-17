@@ -65,8 +65,4 @@ public class WeaponFactory : MonoBehaviour {
             text.text = "0";
         }
     }
-    public Weapon OnClickWeaponTransfer()
-    {
-        return NewWeapon;
-    }
 }

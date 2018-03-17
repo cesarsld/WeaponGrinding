@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 224986709510856678}
   - component: {fileID: 114288044617581842}
   m_Layer: 0
-  m_Name: Inventory weapon panel
+  m_Name: Weapon Panel Ui
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

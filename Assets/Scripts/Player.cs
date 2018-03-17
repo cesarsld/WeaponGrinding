@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     private PlayerData player;
-    private Inventory inventory;
+    public Inventory inventory;
 
 	// Use this for initialization
 	void Awake () {
@@ -17,6 +17,11 @@ public class Player : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public List<Weapon> FetchWeapons()
+    {
+        return inventory.FetchWeapons();
+    }
 
     public void StoreWeapon (Weapon weapon)
     {

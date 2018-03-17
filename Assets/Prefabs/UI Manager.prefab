@@ -236,6 +236,7 @@ MonoBehaviour:
   craftingPanel: {fileID: 0}
   inventoryPanel: {fileID: 0}
   upgradePanel: {fileID: 0}
+  upgradeInventoryPanel: {fileID: 0}
 --- !u!114 &114331225568611558
 MonoBehaviour:
   m_ObjectHideFlags: 1

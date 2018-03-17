@@ -80,9 +80,10 @@ public class WeaponUpgrading : MonoBehaviour {
         UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
     }
 
-    public void OnClickTransfer()
+    public void OnClickTransfer(Weapon weapon)
     {
-        WeaponToUpgrade = GameObject.Find("WeaponFactory").GetComponent<WeaponFactory>().OnClickWeaponTransfer();
+        weaponSelected = true;
+        WeaponToUpgrade = weapon;
         UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
         SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
         WeaponRarityText.text = "Weapon rarity :\n" + WeaponToUpgrade.WeaponRarity.ToString();

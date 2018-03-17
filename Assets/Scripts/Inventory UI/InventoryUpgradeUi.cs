@@ -4,37 +4,43 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryUpgradeUi : MonoBehaviour {
+public class InventoryUpgradeUi : InventoryUi {
 
-    public GameObject WeaponPanel;
-    public GameObject Content;
-    // Use this for initialization
-    void Start () {
-
-    }
-
-    // Update is called once per frame
-    void Update () {
-
-    }
-
-    public void FetchWeapons()
-    { // later on this function will fetch weapons from inventory
+    public override void FetchWeapons()
+    { //add remove feature
         int x = 0;
         int y = 0;
         int spacing = 60;
-        for (int i = 0; i < 28; i++)
+        if (player.inventory.HasChangedInUpgrade() && player.inventory.FetchWeaponsForUpgrade().Count > 0)
         {
-            GameObject panel = Instantiate(WeaponPanel, Content.transform, false);
-            panel.transform.localPosition = new Vector3(40 + spacing * x , -40 - spacing * y, 0);
-            x++;
-            if (x == 3)
+            foreach (Weapon weapon in player.FetchWeapons())
             {
-                y++;
-                x = 0;
+                if (!weaponList.Contains(weapon))
+                {
+                    weaponList.Add(weapon);
+                    GameObject panel = Instantiate(WeaponPanel, Content.transform, false);
+                    weaponGameObj.Add(panel);
+                    panel.GetComponent<WeaponPanelUi>().IsOnUpgradePanel();
+                    panel.GetComponent<WeaponPanelUi>().ReceiveWeapon(weapon);
+                    panel.transform.localPosition = new Vector3(40 + spacing * x, -40 - spacing * y, 0);
+                }
+                x++;
+                if (x == 9)
+                {
+                    y++;
+                    x = 0;
+                }
             }
+            RectTransform rt = Content.GetComponent(typeof(RectTransform)) as RectTransform;
+            rt.sizeDelta = new Vector2(rt.sizeDelta.x, 60 * (y + 1) + 40);
         }
-        RectTransform rt = Content.GetComponent(typeof(RectTransform)) as RectTransform;
-        rt.sizeDelta = new Vector2(rt.sizeDelta.x, 60 * (y + 1) + 40);
+        foreach (GameObject obj in weaponGameObj)
+        {
+            obj.GetComponent<WeaponPanelUi>().IsOnUpgradePanel();
+        }
+    }
+    public void OnCancelClick()
+    {
+        gameObject.SetActive(false);
     }
 }
