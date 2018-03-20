@@ -37,6 +37,8 @@ public class WeaponUpgrading : MonoBehaviour {
     public Text SuccessRateText;
     public Text WeaponRarityText;
 
+    public Text[] GemCountTextArray;
+
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player").GetComponent<Player>();
@@ -46,38 +48,42 @@ public class WeaponUpgrading : MonoBehaviour {
     public void OnClickUpgrade()
     {
         if (!weaponSelected) return;
-        int rollChance = Random.Range(0, 99);
-        if (rollChance < SuccessRateArray[WeaponToUpgrade.GetLevel()])
+        if (HasGems())
         {
-            WeaponToUpgrade.Upgrade();
-            if (WeaponToUpgrade.GetLevel() <= 15)
+            int rollChance = Random.Range(0, 99);
+            if (rollChance < SuccessRateArray[WeaponToUpgrade.GetLevel()])
             {
-                SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
+                WeaponToUpgrade.Upgrade();
+                if (WeaponToUpgrade.GetLevel() <= 15)
+                {
+                    SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
+                }
             }
+            else
+            {
+                if (WeaponToUpgrade.GetLevel() > 7)
+                {
+                    player.RemoveWeapon(WeaponToUpgrade);
+                    weaponSelected = true;
+                    UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
+                    return;
+                }
+                switch (WeaponToUpgrade.GetLevel())
+                {
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                        WeaponToUpgrade.Degrade(1);
+                        break;
+                    case 7:
+                        WeaponToUpgrade.Degrade(4);
+                        break;
+                }
+            }
+            UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
+            UpdateGemcount();
         }
-        else
-        {
-            if (WeaponToUpgrade.GetLevel() > 7)
-            {
-                player.RemoveWeapon(WeaponToUpgrade);
-                weaponSelected = true;
-                UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
-                return;
-            }
-            switch (WeaponToUpgrade.GetLevel())
-            {
-                case 3:
-                case 4:
-                case 5:
-                case 6:
-                    WeaponToUpgrade.Degrade(1);
-                    break;
-                case 7:
-                    WeaponToUpgrade.Degrade(4);
-                    break;
-            }
-        }
-        UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
     }
 
     public void OnClickTransfer(Weapon weapon)
@@ -87,5 +93,24 @@ public class WeaponUpgrading : MonoBehaviour {
         UpgradeLevelText.text = "Weapon level:\n" + WeaponToUpgrade.GetLevel().ToString();
         SuccessRateText.text = "Success rate:\n" + SuccessRateArray[WeaponToUpgrade.GetLevel()].ToString() + "%";
         WeaponRarityText.text = "Weapon rarity :\n" + WeaponToUpgrade.WeaponRarity.ToString();
+    }
+
+    //subject ot change, for now only one gem per upgrade
+    private bool HasGems()
+    {
+        int index = WeaponToUpgrade.GetLevel() / 4;
+        if (player.gemBag.GetGemCount(index) > 0)
+        {
+            player.gemBag.Use(index, 1);
+            return true;
+        }
+        return false;
+    }
+    public void UpdateGemcount()
+    {
+        for(int i = 0; i < GemCountTextArray.Length; i++)
+        {
+            GemCountTextArray[i].text = player.gemBag.GetGemCount(i).ToString();
+        }
     }
 }

@@ -28,6 +28,7 @@ public class UiManager : MonoBehaviour {
         if (!panelSelected)
         {
             craftingPanel.SetActive(!craftingPanel.activeSelf);
+            GameObject.Find("WeaponFactory").GetComponent<WeaponFactory>().OnClickReset();
             panelSelected = !panelSelected;
         }
     }
@@ -45,6 +46,7 @@ public class UiManager : MonoBehaviour {
         if (!panelSelected)
         {
             upgradePanel.SetActive(!upgradePanel.activeSelf);
+            GameObject.Find("WeaponUpgrading").GetComponent<WeaponUpgrading>().UpdateGemcount();
             panelSelected = !panelSelected;
         }
     }

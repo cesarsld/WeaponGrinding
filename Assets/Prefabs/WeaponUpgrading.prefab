@@ -54,3 +54,8 @@ MonoBehaviour:
   UpgradeLevelText: {fileID: 0}
   SuccessRateText: {fileID: 0}
   WeaponRarityText: {fileID: 0}
+  GemCountTextArray:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

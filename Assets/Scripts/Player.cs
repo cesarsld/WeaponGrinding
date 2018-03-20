@@ -6,11 +6,13 @@ public class Player : MonoBehaviour {
 
     private PlayerData player;
     public Inventory inventory;
+    public GemBag gemBag;
 
-	// Use this for initialization
-	void Awake () {
+    // Use this for initialization
+    void Awake () {
         player = new PlayerData(1);
         inventory = new Inventory(player.Id);
+        gemBag = new GemBag(player.Id);
 	}
 	
 	// Update is called once per frame

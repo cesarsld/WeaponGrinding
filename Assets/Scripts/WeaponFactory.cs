@@ -16,6 +16,7 @@ public class WeaponFactory : MonoBehaviour {
     private readonly int[] NoAttemptsAtIndex ={ 100, 5, 1 };
     private int AttemptNo;
     private bool WeaponCrafted;
+    private bool hasBalance;
 
 	void Start () 
     {
@@ -53,13 +54,13 @@ public class WeaponFactory : MonoBehaviour {
         PartSelector.transform.position = PartText[CraftIndex].gameObject.transform.position;
     }
 
-    public void OnClickReset () // dev feature
+    public void OnClickReset () // dev feature, keep ot for openeing panel but remove button
     {
         WeaponCrafted = false;
         NewWeapon = new Weapon(PART_NUMBER);
         CraftIndex = 0;
         PartSelector.transform.position = PartText[CraftIndex].gameObject.transform.position;
-        WeaponRarityText.text = "Weapon rarity:\n 0";
+        WeaponRarityText.text = "Weapon rarity:\n0";
         foreach (Text text in PartText)
         {
             text.text = "0";

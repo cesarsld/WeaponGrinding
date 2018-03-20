@@ -6,6 +6,7 @@ public class Inventory {
 
     private int playerID;
     private List<Weapon> WeaponList;
+    private GemBag gemBag;
     private bool hasChanged;
     private bool hasChangedInUpgrade;
    

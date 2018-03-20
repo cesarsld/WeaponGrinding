@@ -168,6 +168,26 @@ Prefab:
       propertyPath: WeaponRarityText
       value: 
       objectReference: {fileID: 1304336676}
+    - target: {fileID: 114131332882982056, guid: 78ecb6b1a5108f94aa66d78ac2b5b768,
+        type: 2}
+      propertyPath: GemCountTextArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 1881730645}
+    - target: {fileID: 114131332882982056, guid: 78ecb6b1a5108f94aa66d78ac2b5b768,
+        type: 2}
+      propertyPath: GemCountTextArray.Array.data[1]
+      value: 
+      objectReference: {fileID: 2091911528}
+    - target: {fileID: 114131332882982056, guid: 78ecb6b1a5108f94aa66d78ac2b5b768,
+        type: 2}
+      propertyPath: GemCountTextArray.Array.data[2]
+      value: 
+      objectReference: {fileID: 585786129}
+    - target: {fileID: 114131332882982056, guid: 78ecb6b1a5108f94aa66d78ac2b5b768,
+        type: 2}
+      propertyPath: GemCountTextArray.Array.data[3]
+      value: 
+      objectReference: {fileID: 1152495937}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 78ecb6b1a5108f94aa66d78ac2b5b768, type: 2}
   m_IsPrefabParent: 0
@@ -381,6 +401,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7b9ad16ad4902404f8974af4c81b8702, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &585786129 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114294095548216720, guid: b8538e3a404bafc4a85429500ad2c3f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422235969}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &617153517
 Prefab:
   m_ObjectHideFlags: 0
@@ -863,6 +889,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224674674812889342, guid: b8538e3a404bafc4a85429500ad2c3f3,
     type: 2}
   m_PrefabInternal: {fileID: 1422235969}
+--- !u!114 &1152495937 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114021826596458550, guid: b8538e3a404bafc4a85429500ad2c3f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422235969}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!114 &1153486897 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114319147879168792, guid: af2cfa0fdf4c1ab4c95b7c40bf77d89a,
@@ -1158,15 +1190,6 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 261736252}
-    - target: {fileID: 1730935061845198, guid: b8538e3a404bafc4a85429500ad2c3f3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114143153794001336, guid: b8538e3a404bafc4a85429500ad2c3f3,
-        type: 2}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: UpgradeInventoryToggle
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b8538e3a404bafc4a85429500ad2c3f3, type: 2}
   m_IsPrefabParent: 0
@@ -1299,6 +1322,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1422235969}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &1881730645 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114547089806682136, guid: b8538e3a404bafc4a85429500ad2c3f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422235969}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1925240443
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,3 +1423,9 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 818411606}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!114 &2091911528 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114003163894729480, guid: b8538e3a404bafc4a85429500ad2c3f3,
+    type: 2}
+  m_PrefabInternal: {fileID: 1422235969}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
