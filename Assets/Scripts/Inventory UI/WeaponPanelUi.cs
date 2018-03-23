@@ -43,7 +43,7 @@ public class WeaponPanelUi : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
        // WeaponDescription.transform.position = new Vector3(transform.position.x - 100, transform.position.y, transform.position.z);
         CurrentDescription = Instantiate(WeaponDescription, transform.root, false);
-        CurrentDescription.transform.position = new Vector3(transform.position.x - 90, transform.position.y, transform.position.z);
+        CurrentDescription.transform.position = new Vector3(transform.position.x - 180, transform.position.y, transform.position.z);
         //WeaponImage.sprite = wp.SpriteArray[Random.Range(0, wp.SpriteArray.Length)];
         CurrentDescription.transform.Find("Weapon Name").gameObject.GetComponent<Text>().text = "Weapon Name +" + weapon.GetLevel().ToString();
         CurrentDescription.transform.Find("Rarity Text").gameObject.GetComponent<Text>().text = "Weapon rarity: " + weapon.WeaponRarity.ToString();
