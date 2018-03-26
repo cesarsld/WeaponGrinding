@@ -20,6 +20,11 @@ public class Player : MonoBehaviour {
 		
 	}
 
+    public int GetId()
+    {
+        return player.Id;
+    }
+
     public List<Weapon> FetchWeapons()
     {
         return inventory.FetchWeapons();
