@@ -54,7 +54,7 @@ public class WorldGrind {
     public int[] FindLoot()
     {
         UpdateLootArray();
-        int time = LatestTimeElapsed() + LastTimeElapsed();
+        int time = DateTime.Now.Subtract(StartTimeStamp).Seconds;
         int[] returnArray = new int[LootArray.Length];
         for (int i = 0; i < LootArray.Length ; i ++)
         {

@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Inventory {
 
     private int playerID;
     private List<Weapon> WeaponList;
-    private GemBag gemBag;
+    public Resource[] ResourceBag;
     private bool hasChanged;
     private bool hasChangedInUpgrade;
    
@@ -14,13 +15,18 @@ public class Inventory {
     {
         playerID = id;
         WeaponList = new List<Weapon>();
+        ResourceBag = new Resource[Enum.GetNames(typeof(Resources)).Length];
+        for (int i = 0; i < ResourceBag.Length; i++)
+        {
+            ResourceBag[i] = new Resource((Resources)i);
+        }
         hasChanged = false;
         hasChangedInUpgrade = false;
     }
 
     public void LoadDataFromDB ()
     {
-        
+        int n = Enum.GetNames(typeof(Resources)).Length;
     }
 
     public List<Weapon> FetchWeapons()

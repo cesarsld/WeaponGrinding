@@ -8,6 +8,7 @@ public class UiManager : MonoBehaviour {
     public GameObject inventoryPanel;
     public GameObject upgradePanel;
     public GameObject upgradeInventoryPanel;
+    public GameObject SelectorPanel;
     private bool panelSelected;
     // Use this for initialization
     void Awake () {
@@ -15,6 +16,7 @@ public class UiManager : MonoBehaviour {
         inventoryPanel.SetActive(false);
         upgradePanel.SetActive(false);
         upgradeInventoryPanel.SetActive(false);
+        SelectorPanel.SetActive(false);
         panelSelected = false;
     }
 	
@@ -56,6 +58,15 @@ public class UiManager : MonoBehaviour {
          upgradeInventoryPanel.SetActive(!upgradeInventoryPanel.activeSelf);
         if (upgradeInventoryPanel.activeSelf) upgradeInventoryPanel.GetComponent<InventoryUpgradeUi>().FetchWeapons();
 
+    }
+
+    public void SelectorToggle()
+    {
+        if (!panelSelected)
+        {
+            SelectorPanel.SetActive(!craftingPanel.activeSelf);
+            panelSelected = !panelSelected;
+        }
     }
 
     public void PanelClosed()
